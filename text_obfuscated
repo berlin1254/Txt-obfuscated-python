@@ -1,0 +1,20 @@
+def obfuscate_text(text):
+    obfuscated_text = ""
+
+    for char in text:
+        if char.isalpha():
+            if char.islower():
+                obfuscated_char = chr((ord(char) - ord('a') + 13) % 26 + ord('a'))
+            else:
+                obfuscated_char = chr((ord(char) - ord('A') + 13) % 26 + ord('A'))
+            obfuscated_text += obfuscated_char
+        else:
+            obfuscated_text += char
+
+    return obfuscated_text
+
+user_input = input("Please enter the text you want to obfuscate: ")
+
+obfuscated_text = obfuscate_text(user_input)
+
+print("Here is the obfuscated text: " + obfuscated_text)
